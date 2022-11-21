@@ -43,7 +43,8 @@ local function init_diff(doc)
 end
 
 local function gitdiff_padding(dv)
-	return style.padding.x * 1.5 + dv:get_font():get_width(#dv.doc.lines)
+	return 4
+	--return style.padding.x * 1.5 + dv:get_font():get_width(#dv.doc.lines)
 end
 
 local function update_diff(doc)
@@ -111,7 +112,7 @@ function DocView:draw_line_gutter(line, x, y, width)
 		renderer.draw_rect(x, y + yoffset, style.gitdiff_width, self:get_line_height(), color)
 		return
 	end
-	renderer.draw_rect(x - style.gitdiff_width * 2, y + yoffset, style.gitdiff_width * 4, 2, color)
+	renderer.draw_rect(x, y + yoffset, style.gitdiff_width * 4, 2, color)
 	return lh
 end
 
